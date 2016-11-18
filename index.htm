@@ -28,7 +28,31 @@
 </head>
 <body>
   <div id="block">
-    <h1>NO</h1>
+    <h1>YES</h1>
+    <div id="timer">David has been typing for:<br /><span id="clock">&nbsp;</span></div>
   </div>
+<script type="text/javascript">
+window.onload=function() {
+   doTime();
+ }
+function doTime() {
+
+   now=new Date ();
+   then=new Date ('nov,18,2016,16:15:00');
+
+   difference=(now-then);
+
+   days=Math.floor(difference/(60*60*1000*24)*1);
+   hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+   mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+   secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+
+   document.getElementById('clock').firstChild.nodeValue=
+
+     ''+days+' days '+hours+' hours '+mins+' minutes '+secs+' seconds';
+
+   setTimeout('doTime()',1000);
+ }
+</script>
 </body>
 </html>
